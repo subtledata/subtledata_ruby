@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
     s.summary           = "Ruby Client Library for SubtleData",
     s.description       = "Ruby Client Library for SubtleData",
     s.rubyforge_project = "subtledata"
-    s.files             = `find lib -name "*.rb"`.split("\n")
+    s.files             = `find lib -name "*.rb"`.split("\n") + `find models -name "*.rb"`.split("\n")
 =begin
     s.files             = `git ls-files`.split("\n")
     s.test_files        = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
     s.require_paths     = ["lib", "models"]
 
     # specify any dependencies here; for example:
-    # s.add_runtime_dependency "httparty"
+    %w{ addressable typhoeus }.each do |dep|
+        s.add_runtime_dependency dep
+    end
 end
 
