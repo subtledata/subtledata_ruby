@@ -57,10 +57,10 @@ module Swagger
         :path => self.interpreted_path,
         :query => self.query_string.sub(/\?/, '')
       ).to_s
-      
+
       # Drop trailing question mark, if present
       u.sub! /\?$/, ''
-      
+
       # Obfuscate API key?
       u.sub! /api\_key=\w+/, 'api_key=YOUR_API_KEY' if options[:obfuscated]
       
@@ -121,7 +121,7 @@ module Swagger
       self.params.each_pair do |key, value|
         next if self.path.include? "{#{key}}"                                   # skip path params
         next if value.blank? && value.class != FalseClass                       # skip empties
-        key = key.to_s.camelize(:lower).to_sym unless key.to_sym == :api_key    # api_key is not a camelCased param
+        key = key.to_s.camelize(:lower).to_sym unless key.to_sym == :api_key || key.to_sym == :ticket_type     # api_key is not a camelCased param
         query_values[key] = value.to_s
       end
     
