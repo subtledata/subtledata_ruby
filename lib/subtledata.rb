@@ -7,6 +7,7 @@ require_relative './locations_api.rb'
 require_relative './monkey.rb'
 require_relative './swagger.rb'
 require_relative './users_api.rb'
+require_relative './concessions_api.rb'
 
 Swagger.configure do |config|
     config.format = 'json'
