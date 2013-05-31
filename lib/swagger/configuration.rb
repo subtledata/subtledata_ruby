@@ -3,7 +3,8 @@ module Swagger
   class Configuration
     require 'swagger/version'    
     
-    attr_accessor :format, :api_key, :username, :password, :auth_token, :scheme, :host, :base_path, :user_agent, :logger, :inject_format
+    attr_accessor :format, :api_key, :username, :password, :auth_token, :scheme, :host, :base_path,
+        :user_agent, :logger, :inject_format
     
     # Defaults go in here..
     def initialize
@@ -18,3 +19,4 @@ module Swagger
   end
 
 end
+
