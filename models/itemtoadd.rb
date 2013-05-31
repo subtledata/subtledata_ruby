@@ -1,10 +1,10 @@
 class ItemToAdd
-  attr_accessor :item_id, :instructions, :quantity
+  attr_accessor :item_id, :instructions, :modifiers, :quantity
 
   # :internal => :external
   def self.attribute_map
   {
-      :item_id => :item_id, :instructions => :instructions, :quantity => :quantity
+      :item_id => :item_id, :instructions => :instructions, :modifiers => :modifiers, :quantity => :quantity
 
   }
   end
@@ -23,6 +23,17 @@ class ItemToAdd
         value = attributes["instructions"]
         send("#{name}=", value) if self.respond_to?(name)
 	      end
+      if ItemToAdd.attribute_map["modifiers".to_sym] != nil
+        name = "modifiers".to_sym
+        value = attributes["modifiers"]
+        if value.is_a?(Array)
+	        array = Array.new
+	        value.each do |arrayValue|
+	          array.push Modifier.new(arrayValue)
+	        end
+	        send("#{name}=", array) if self.respond_to?(name)
+	      end
+        end
       if ItemToAdd.attribute_map["quantity".to_sym] != nil
         name = "quantity".to_sym
         value = attributes["quantity"]

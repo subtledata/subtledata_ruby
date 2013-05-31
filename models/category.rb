@@ -19,7 +19,7 @@ class Category
         if value.is_a?(Array)
 	        array = Array.new
 	        value.each do |arrayValue|
-	          array.push Item.new(arrayValue)
+	          array.push MenuItemDetail.new(arrayValue)
 	        end
 	        send("#{name}=", array) if self.respond_to?(name)
 	      end

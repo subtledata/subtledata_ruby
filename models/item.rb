@@ -1,10 +1,10 @@
 class Item
-  attr_accessor :description, :price, :name, :revenue_center_id, :item_id, :item_images
+  attr_accessor :item_id, :instructions, :modifiers, :quantity
 
   # :internal => :external
   def self.attribute_map
   {
-      :description => :description, :price => :price, :name => :name, :revenue_center_id => :revenue_center_id, :item_id => :item_id, :item_images => :item_images
+      :item_id => :item_id, :instructions => :instructions, :modifiers => :modifiers, :quantity => :quantity
 
   }
   end
@@ -13,42 +13,32 @@ class Item
     # Morph attribute keys into undescored rubyish style
     if attributes.to_s != ""
 
-      if Item.attribute_map["description".to_sym] != nil
-        name = "description".to_sym
-        value = attributes["description"]
-        send("#{name}=", value) if self.respond_to?(name)
-	      end
-      if Item.attribute_map["price".to_sym] != nil
-        name = "price".to_sym
-        value = attributes["price"]
-        send("#{name}=", value) if self.respond_to?(name)
-	      end
-      if Item.attribute_map["name".to_sym] != nil
-        name = "name".to_sym
-        value = attributes["name"]
-        send("#{name}=", value) if self.respond_to?(name)
-	      end
-      if Item.attribute_map["revenue_center_id".to_sym] != nil
-        name = "revenue_center_id".to_sym
-        value = attributes["revenue_center_id"]
-        send("#{name}=", value) if self.respond_to?(name)
-	      end
       if Item.attribute_map["item_id".to_sym] != nil
         name = "item_id".to_sym
         value = attributes["item_id"]
         send("#{name}=", value) if self.respond_to?(name)
 	      end
-      if Item.attribute_map["item_images".to_sym] != nil
-        name = "item_images".to_sym
-        value = attributes["item_images"]
+      if Item.attribute_map["instructions".to_sym] != nil
+        name = "instructions".to_sym
+        value = attributes["instructions"]
+        send("#{name}=", value) if self.respond_to?(name)
+	      end
+      if Item.attribute_map["modifiers".to_sym] != nil
+        name = "modifiers".to_sym
+        value = attributes["modifiers"]
         if value.is_a?(Array)
 	        array = Array.new
 	        value.each do |arrayValue|
-	          array.push ItemImage.new(arrayValue)
+	          array.push Modifier.new(arrayValue)
 	        end
 	        send("#{name}=", array) if self.respond_to?(name)
 	      end
         end
+      if Item.attribute_map["quantity".to_sym] != nil
+        name = "quantity".to_sym
+        value = attributes["quantity"]
+        send("#{name}=", value) if self.respond_to?(name)
+	      end
       end
   end
 
