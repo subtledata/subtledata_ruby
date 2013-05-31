@@ -4,7 +4,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
     s.name              = "subtledata"
-    s.version           = '0.0.4'
+    s.version           = '0.0.5'
     s.date              = '2013-05-31'
     s.authors           = ["George Sibble"]
     s.email             = ["george.sibble@subtledata.com"]
