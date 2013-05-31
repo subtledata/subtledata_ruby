@@ -103,6 +103,32 @@ def self.get_location_menu (location_id,api_key,use_cache,opts={})
     response.map {|response|Category.new(response)}
   end
 
+def self.get_menu_item (location_id,item_id,api_key,use_cache,opts={})
+    query_param_keys = [:api_key,:use_cache]
+
+    # verify existence of params
+    raise "location_id is required" if location_id.nil?
+    raise "item_id is required" if item_id.nil?
+    raise "api_key is required" if api_key.nil?
+    # set default values and merge with input
+    options = { :location_id => location_id, :item_id => item_id, :api_key => api_key, :use_cache => use_cache}.merge(opts)
+
+    #resource path
+    path = "/locations/{location_id}/menu/items/{item_id}".sub('{format}','json').sub('{' + 'location_id' + '}', escapeString(location_id))
+    .sub('{' + 'item_id' + '}', escapeString(item_id))
+    
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+    
+    headers = nil
+    post_body = nil
+    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+    MenuItem.new(response)
+  end
+
 def self.get_location_employees (location_id,api_key,manager_id,revenue_center_id,opts={})
     query_param_keys = [:api_key,:manager_id,:revenue_center_id]
 
