@@ -27,7 +27,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|Location.new(response)}
+    response.map {|response| SubtleData::Location.new(response)}
   end
 
 def self.get_locations_near (api_key,use_cache,latitude,longitude,radius,opts={})
