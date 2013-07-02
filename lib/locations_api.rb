@@ -52,7 +52,7 @@ def self.get_locations_near (api_key,use_cache,latitude,longitude,radius,opts={}
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|Location.new(response)}
+    response.map {|response| SubtleData::Location.new(response)}
   end
 
 def self.get_location (location_id,api_key,use_cache,opts={})
@@ -100,7 +100,7 @@ def self.get_location_menu (location_id,api_key,use_cache,opts={})
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|Category.new(response)}
+    response.map {|response| SubtleData::Category.new(response)}
   end
 
 def self.get_menu_item (location_id,item_id,api_key,use_cache,opts={})
@@ -151,7 +151,7 @@ def self.get_location_employees (location_id,api_key,manager_id,revenue_center_i
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|Employee.new(response)}
+    response.map {|response| SubtleData::Employee.new(response)}
   end
 
 def self.get_table_list (location_id,api_key,use_cache,opts={})
@@ -175,7 +175,7 @@ def self.get_table_list (location_id,api_key,use_cache,opts={})
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|TableMinimal.new(response)}
+    response.map {|response| SubtleData::TableMinimal.new(response)}
   end
 
 def self.get_tickets (location_id,api_key,condensed,opts={})
@@ -199,7 +199,7 @@ def self.get_tickets (location_id,api_key,condensed,opts={})
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|Ticket.new(response)}
+    response.map {|response| SubtleData::Ticket.new(response)}
   end
 
 def self.create_ticket (location_id,api_key,ticket_type,body,opts={})
@@ -268,7 +268,7 @@ def self.get_tabs (location_id,api_key,opts={})
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|Tab.new(response)}
+    response.map {|response| SubtleData::Tab.new(response)}
   end
 
 def self.get_table (location_id,table_id,api_key,opts={})
@@ -475,7 +475,7 @@ def self.get_users_connected_to_ticket (location_id,ticket_id,api_key,opts={})
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    response.map {|response|User.new(response)}
+    response.map {|response| SubtleData::User.new(response)}
   end
 
 def self.connect_user_to_ticket (location_id,ticket_id,api_key,body,opts={})
