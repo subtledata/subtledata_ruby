@@ -76,7 +76,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    Location.new(response)
+    SubtleData::Location.new(response)
   end
 
   def self.get_location_menu (location_id,api_key,use_cache,opts={})
@@ -150,7 +150,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    MenuItem.new(response)
+    SubtleData::MenuItem.new(response)
   end
 
   def self.get_location_employees (location_id,api_key,manager_id,revenue_center_id,opts={})
@@ -268,7 +268,7 @@ class Locations_api
       end
     end
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    TicketStatus.new(response)
+    SubtleData::TicketStatus.new(response)
   end
 
   def self.get_tabs (location_id,api_key,opts={})
@@ -318,7 +318,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    TableDetails.new(response)
+    SubtleData::TableDetails.new(response)
   end
 
   def self.get_ticket (location_id,ticket_id,api_key,user_id,opts={})
@@ -344,7 +344,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    Ticket.new(response)
+    SubtleData::Ticket.new(response)
   end
 
   def self.void_ticket (location_id,ticket_id,api_key,user_id,opts={})
@@ -370,7 +370,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:DELETE, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    Status.new(response)
+    SubtleData::Status.new(response)
   end
 
   def self.get_ticket_with_p_o_s__i_d (location_id,pos_ticket_id,api_key,user_id,opts={})
@@ -396,7 +396,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    Ticket.new(response)
+    SubtleData::Ticket.new(response)
   end
 
   def self.submit_order (location_id,ticket_id,user_id,api_key,opts={})
@@ -424,7 +424,7 @@ class Locations_api
     headers = nil
     post_body = nil
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    OrderResults.new(response)
+    SubtleData::OrderResults.new(response)
   end
 
   def self.add_items_to_order (location_id,ticket_id,user_id,api_key,body,opts={})
@@ -473,7 +473,7 @@ class Locations_api
       end
     end
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    Status.new(response)
+    SubtleData::Status.new(response)
   end
 
   def self.get_users_connected_to_ticket (location_id,ticket_id,api_key,opts={})
@@ -546,7 +546,7 @@ class Locations_api
       end
     end
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    ConnectStatus.new(response)
+    SubtleData::ConnectStatus.new(response)
   end
 
   def self.discount_ticket (location_id,ticket_id,api_key,body,opts={})
@@ -593,7 +593,7 @@ class Locations_api
       end
     end
     response = Swagger::Request.new(:POST, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    Status.new(response)
+    SubtleData::Status.new(response)
   end
 
   def self.add_payment_to_ticket (location_id,ticket_id,api_key,body,opts={})
@@ -640,7 +640,7 @@ class Locations_api
       end
     end
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    PaymentStatus.new(response)
+    SubtleData::PaymentStatus.new(response)
   end
 
   def self.add_external_payment_to_ticket (location_id,ticket_id,api_key,body,opts={})
@@ -687,7 +687,7 @@ class Locations_api
       end
     end
     response = Swagger::Request.new(:PUT, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
-    ExternalPaymentStatus.new(response)
+    SubtleData::ExternalPaymentStatus.new(response)
   end
 
 end
