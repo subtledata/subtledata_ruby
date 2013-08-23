@@ -5,7 +5,7 @@ module SubtleData
     # :internal => :external
     def self.attribute_map
       {
-        :items => :items, :has_items => :has_items, :instructional_text => :instructional_text, :category_images => :category_images, :category_id => :category_id, :has_subcategories => :has_subcategories, :category_name => :category_name
+        :items => :items, :has_items => :has_items, :instructional_text => :instructional_text, :category_images => :category_images, :category_id => :pos_category_id, :has_subcategories => :has_subcategories, :category_name => :pos_category_name
 
       }
     end
@@ -46,9 +46,9 @@ module SubtleData
             send("#{name}=", array) if self.respond_to?(name)
           end
         end
-        if Category.attribute_map["category_id".to_sym] != nil
-          name = "category_id".to_sym
-          value = attributes["category_id"]
+        if (attr = Category.attribute_map[:category_id]) != nil
+          name = :category_id
+          value = attributes[attr.to_s]
           send("#{name}=", value) if self.respond_to?(name)
         end
         if Category.attribute_map["has_subcategories".to_sym] != nil
@@ -56,9 +56,9 @@ module SubtleData
           value = attributes["has_subcategories"]
           send("#{name}=", value) if self.respond_to?(name)
         end
-        if Category.attribute_map["category_name".to_sym] != nil
-          name = "category_name".to_sym
-          value = attributes["category_name"]
+        if (attr = Category.attribute_map[:category_name]) != nil
+          name = :category_name
+          value = attributes[attr.to_s]
           send("#{name}=", value) if self.respond_to?(name)
         end
       end
