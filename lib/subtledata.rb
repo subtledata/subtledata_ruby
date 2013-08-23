@@ -1,13 +1,14 @@
+$:.unshift File.dirname(__FILE__)
 
 models = File.join(File.dirname(__FILE__), '..', 'models', '*.rb')
 Dir[models].each {|file| require file }
 
-require_relative './general_api.rb'
-require_relative './locations_api.rb'
-require_relative './monkey.rb'
-require_relative './swagger.rb'
-require_relative './users_api.rb'
-require_relative './concessions_api.rb'
+require 'general_api'
+require 'locations_api'
+require 'monkey'
+require 'swagger'
+require 'users_api'
+require 'concessions_api'
 
 Swagger.configure do |config|
     config.format = 'json'
